@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "npm run build:css",
-    "build:css": "sass src/sphinx_icore_open/assets/styles/index.scss --style=compressed --no-source-map src/sphinx_icore_open/theme/sphinx_icore_open/static/theme.css --load-path=node_modules/",
-    "watch:css": "sass --watch src/sphinx_icore_open/assets/styles/index.scss:src/sphinx_icore_open/theme/sphinx_icore_open/static/theme.css --style=compressed --no-source-map --load-path=node_modules/"
+    "build:css": "sass static/scss/index.scss --style=compressed --no-source-map src/sphinx_icore_open/theme/sphinx_icore_open/static/theme.css --load-path=node_modules/",
+    "watch:css": "sass --watch static/scss/index.scss:src/sphinx_icore_open/theme/sphinx_icore_open/static/theme.css --style=compressed --no-source-map --load-path=node_modules/"
   },
   "dependencies": {
     "@minvws/manon": "^17.0.0",
