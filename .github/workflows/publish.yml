@@ -13,6 +13,11 @@ jobs:
   build:
     name: Build and publish
     runs-on: ubuntu-24.04
+    environment:
+      name: pypi
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -21,6 +26,9 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: "22"
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build static files
         shell: sh
