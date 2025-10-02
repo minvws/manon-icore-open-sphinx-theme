@@ -1,0 +1,28 @@
+[project]
+name = "sphinx_icore_open"
+dynamic = ["version"]
+requires-python = ">=3.13"
+dependencies = [
+    "sphinx",
+]
+
+[project.optional-dependencies]
+dev = [
+  "myst-parser",
+  "sphinx-autobuild",
+  "sphinxcontrib-mermaid",
+  "autodoc_pydantic",
+]
+
+[project.entry-points]
+"sphinx.html_themes" = { sphinx_icore_open = "sphinx_icore_open" }
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "sphinx_icore_open.__version__"}

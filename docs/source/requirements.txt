@@ -1,0 +1,4 @@
+myst_parser
+sphinxcontrib-mermaid
+autodoc_pydantic
+sphinx-autobuild
