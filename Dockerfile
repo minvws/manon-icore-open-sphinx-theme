@@ -16,21 +16,17 @@ RUN apt-get update && apt-get install -y curl xz-utils \
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /uvx /bin/
 
-# Copy project definitions, for caching
-COPY pyproject.toml uv.lock ./
-COPY package.json package-lock.json ./
-
-COPY src/ ./src/
-
-# Install Python deps
-RUN uv pip install --system .[dev]
-
 # Install Node.js deps
+COPY package.json package-lock.json ./
 RUN npm ci
 
-# Copy files needed for runtime, but avoid re-copying the Python source
-COPY docs/ ./docs/
-COPY entrypoint.sh .
+# Install Python deps
+COPY pyproject.toml uv.lock ./
+COPY src/ ./src/
+RUN uv pip install --system .[dev]
+
+# Copy the rest of the application code
+COPY . .
 
 # Build the static assets
 RUN npm run build
