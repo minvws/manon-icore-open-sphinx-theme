@@ -1,0 +1,27 @@
+[project]
+name = "sphinx_icore_open"
+description = "Sphinx theme for iCore Open"
+dynamic = ["version"]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "Sphinx==8.2.3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "myst-parser==4.0.1",
+  "sphinx-autobuild==2025.8.25",
+  "sphinxcontrib-mermaid==1.0.0",
+  "autodoc_pydantic==2.2.0",
+]
+
+[project.entry-points]
+"sphinx.html_themes" = { sphinx_icore_open = "sphinx_icore_open" }
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "sphinx_icore_open.__version__"}
