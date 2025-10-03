@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 
-project = "icore-manon-sphinx-theme"
+project = "manon-icore-open-sphinx-theme"
 copyright = "Ministerie van Volksgezondheid, Welzijn en Sport"
 author = "The iCore team"
 release = "0.1.0"
@@ -50,10 +50,19 @@ source_suffix = {
 }
 
 extlinks = {
-    "git_tag": ("https://github.com/minvws/icore-manon-sphinx-theme/tree/%s", "%s"),
-    "bug": ("https://github.com/minvws/icore-manon-sphinx-theme/issues/%s", "#%s"),
-    "feature": ("https://github.com/minvws/icore-manon-sphinx-theme/issues/%s", "#%s"),
-    "issue": ("https://github.com/minvws/icore-manon-sphinx-theme/issues/%s", "#%s"),
+    "git_tag": (
+        "https://github.com/minvws/manon-icore-open-sphinx-theme/tree/%s",
+        "%s",
+    ),
+    "bug": ("https://github.com/minvws/manon-icore-open-sphinx-theme/issues/%s", "#%s"),
+    "feature": (
+        "https://github.com/minvws/manon-icore-open-sphinx-theme/issues/%s",
+        "#%s",
+    ),
+    "issue": (
+        "https://github.com/minvws/manon-icore-open-sphinx-theme/issues/%s",
+        "#%s",
+    ),
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -64,7 +73,7 @@ templates_path = ["_templates"]
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
-# -- Theme and options for HTML output -------------------------------------------------
+# -- Theme and options for HTML output ---------------------------------------
 html_theme_path = ["../../src/sphinx_icore_open/theme"]
 html_theme = "sphinx_icore_open"
 
@@ -77,6 +86,6 @@ html_show_sourcelink = False
 html_theme_options = {
     "description": "Manon Sphinx theme",
     "github_user": "minvws",
-    "github_repo": "icore-manon-sphinx-theme",
-    "tidelift_url": "https://github.com/minvws/icore-manon-sphinx-theme",
+    "github_repo": "manon-icore-open-sphinx-theme",
+    "tidelift_url": "https://github.com/minvws/manon-icore-open-sphinx-theme",
 }
