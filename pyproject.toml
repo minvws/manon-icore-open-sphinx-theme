@@ -20,8 +20,34 @@ dev = [
 "sphinx.html_themes" = { sphinx_icore_open = "sphinx_icore_open" }
 
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=80", "setuptools_scm>=8"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools.dynamic]
-version = {attr = "sphinx_icore_open.__version__"}
+[tool.setuptools_scm]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["docs*"]
+
+[tool.setuptools.package-data]
+sphinx_icore_open = [
+  # Theme templates
+  "theme/sphinx_icore_open/layout.html",
+  "theme/sphinx_icore_open/search.html",
+  "theme/sphinx_icore_open/theme.conf",
+
+  # Static files
+  "theme/sphinx_icore_open/static/css/*.css",
+  "theme/sphinx_icore_open/static/js/*.js",
+  "theme/sphinx_icore_open/static/fonts/**/*",
+  "theme/sphinx_icore_open/static/img/*",
+
+  # Optional templates folder
+  "theme/sphinx_icore_open/templates/**/*"
+]
+
+[tool.setuptools.exclude-package-data]
+sphinx_icore_open = [
+  "__pycache__/*",
+  "*.py[cod]"
+]
