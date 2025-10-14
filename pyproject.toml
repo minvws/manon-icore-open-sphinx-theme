@@ -20,11 +20,10 @@ dev = [
 "sphinx.html_themes" = { sphinx_icore_open = "sphinx_icore_open" }
 
 [build-system]
-requires = ["setuptools>=80"]
+requires = ["setuptools>=80", "setuptools_scm>=8"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools.dynamic]
-version = {attr = "sphinx_icore_open.__version__"}
+[tool.setuptools_scm]
 
 [tool.setuptools.packages.find]
 where = ["src"]

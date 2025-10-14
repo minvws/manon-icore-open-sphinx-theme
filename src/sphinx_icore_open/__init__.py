@@ -1,6 +1,7 @@
 import os
+from importlib.metadata import version
 
-__version__ = "0.1.0"
+__version__ = version("sphinx_icore_open")
 
 
 def setup(app):
