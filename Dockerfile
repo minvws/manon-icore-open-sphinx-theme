@@ -23,6 +23,12 @@ RUN npm ci
 # Install Python deps
 COPY pyproject.toml uv.lock ./
 COPY src/ ./src/
+
+# Provide a fallback version for setuptools_scm, which fails when the
+# .git directory is not available in the Docker build context.
+ARG VERSION="0.0.1"
+ENV SETUPTOOLS_SCM_PRETEND_VERSION_FOR_SPHINX_ICORE_OPEN=$VERSION
+
 RUN uv pip install --system .[dev]
 
 # Copy the rest of the application code
