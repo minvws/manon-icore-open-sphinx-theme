@@ -8,6 +8,7 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -34,11 +35,16 @@ jobs:
         shell: sh
         run: npm run build
 
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+
       - name: Install uv
         uses: astral-sh/setup-uv@v7
 
-      - name: Install Python 3.13
-        run: uv python install 3.13
+      - name: Build
+        run: uv build
 
       - name: Build python package
         run: uv publish
