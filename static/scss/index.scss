@@ -2,7 +2,7 @@
 @use "admonition";
 
 @use "@minvws/manon-themes/icore-open" with (
-  $font-path: "../_static/fonts"
+  $font-path: "/_static/fonts"
 );
 
 @use "header-link";
