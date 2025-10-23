@@ -1,4 +1,4 @@
-def register_translator(app):
+def register_translator(app) -> None:
     """
     Register the custom HTML translator with Sphinx.
     """
