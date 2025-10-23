@@ -52,9 +52,3 @@ sphinx_icore_open = [
   "__pycache__/*",
   "*.py[cod]"
 ]
-
-[[tool.uv.index]]
-name = "MPmFPFtFVPvV8qpV"
-url = "https://test.pypi.org/simple/"
-publish-url = "https://test.pypi.org/legacy/"
-explicit = true
