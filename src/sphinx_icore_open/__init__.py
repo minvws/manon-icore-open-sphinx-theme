@@ -10,4 +10,9 @@ def setup(app):
 
     app.add_html_theme("sphinx_icore_open", theme_path)
 
+    # Lazy import and register translator
+    from .translator import register_translator
+
+    register_translator(app)
+
     return {"parallel_read_safe": True, "parallel_write_safe": True}
