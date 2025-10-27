@@ -1,9 +1,9 @@
 [project]
-name = "sphinx_icore_open"
+name = "sphinx-icore-open-theme"
 description = "Sphinx theme for iCore Open"
 dynamic = ["version"]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.11"
 dependencies = [
     "Sphinx==8.2.3",
 ]

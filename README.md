@@ -20,7 +20,7 @@ collection, providing a modern and accessible documentation experience.
 Install the theme via pip:
 
 ```console
-pip install sphinx_icore_open
+pip install sphinx-icore-open-theme
 ```
 
 Add the theme to your `conf.py` file:
