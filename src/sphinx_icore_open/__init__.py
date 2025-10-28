@@ -5,8 +5,7 @@ from sphinx.application import Sphinx
 
 from sphinx_icore_open import translator
 
-__version__ = version("sphinx_icore_open")
-
+__version__ = version("sphinx-icore-open-theme")
 
 def setup(app: Sphinx):
     root_path = os.path.abspath(os.path.dirname(__file__))
