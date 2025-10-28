@@ -37,6 +37,7 @@ extensions = [
     "myst_parser",
     "sphinxcontrib.mermaid",
     "sphinxcontrib.autodoc_pydantic",
+    "sphinx_icore_open",
 ]
 
 myst_enable_extensions = [

@@ -1,6 +1,6 @@
 from docutils import nodes
-from sphinx.application import Sphinx
 from sphinx.writers.html import HTMLTranslator
+from html import escape
 
 
 class CustomHTMLTranslator(HTMLTranslator):
@@ -13,7 +13,7 @@ class CustomHTMLTranslator(HTMLTranslator):
         to ensure default rendering.
         """
         if isinstance(node.parent, nodes.Admonition):
-            self.body.append(f"<span>{node.astext()}</span>")
+            self.body.append(f"<span>{escape(node.astext())}</span>")
             raise nodes.SkipNode
         else:
             super().visit_title(node)
