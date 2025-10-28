@@ -1,7 +1,7 @@
 import os
 from importlib.metadata import version
 
-__version__ = version("sphinx_icore_open")
+__version__ = version("sphinx-icore-open-theme")
 
 
 def setup(app):
