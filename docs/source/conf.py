@@ -37,6 +37,15 @@ extensions = [
     "myst_parser",
     "sphinxcontrib.mermaid",
     "sphinxcontrib.autodoc_pydantic",
+    # When developing locally, and using:
+    #
+    #   html_theme_path = ["../../src/sphinx_icore_open/theme"]
+    #
+    # Sphinx will use that local folder, and won't import the
+    # sphinx_icore_open package, so the package setup() will not
+    # run. For local testing we can add the package to the extensions as a
+    # workaround.
+    "sphinx_icore_open",
 ]
 
 myst_enable_extensions = [
