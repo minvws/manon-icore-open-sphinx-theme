@@ -1,206 +1,121 @@
-/*---------------------------------------------------------------*/
-/*------------------------- manon.scss --------------------------*/
-/*---------------------------------------------------------------*/
-/* Sets */
-@use "@minvws/manon/body-text-set";
-@use "@minvws/manon/headings-base-set";
+// Components
+@use "@minvws/manon/components/accordion";
+@use "@minvws/manon/components/article";
+@use "@minvws/manon/components/article-section";
+@use "@minvws/manon/components/article-section-divider-line";
+@use "@minvws/manon/components/avatar";
+@use "@minvws/manon/components/base";
+@use "@minvws/manon/components/breadcrumb-bar";
+@use "@minvws/manon/components/button";
+@use "@minvws/manon/components/button-secondary";
+@use "@minvws/manon/components/button-cta";
+@use "@minvws/manon/components/button-container";
+@use "@minvws/manon/components/button-destructive";
+@use "@minvws/manon/components/button-to-top";
+@use "@minvws/manon/components/button-icon-only";
+@use "@minvws/manon/components/card";
+@use "@minvws/manon/components/checkbox";
+@use "@minvws/manon/components/color-picker";
+@use "@minvws/manon/components/code-block";
+@use "@minvws/manon/components/collapsible";
+@use "@minvws/manon/components/critical-informational-labels";
+@use "@minvws/manon/components/de-emphasized";
+@use "@minvws/manon/components/description-list";
+@use "@minvws/manon/components/disabled";
+@use "@minvws/manon/components/div";
+@use "@minvws/manon/components/divider-lines-content-block";
+@use "@minvws/manon/components/divider-striping-top";
+@use "@minvws/manon/components/emphasized";
+@use "@minvws/manon/components/filter";
+@use "@minvws/manon/components/focus";
+@use "@minvws/manon/components/footer";
+@use "@minvws/manon/components/form";
+@use "@minvws/manon/components/form-accent-color";
+@use "@minvws/manon/components/form-button";
+@use "@minvws/manon/components/form-button-container";
+@use "@minvws/manon/components/form-button-grouped-horizontal";
+@use "@minvws/manon/components/form-checkbox";
+@use "@minvws/manon/components/form-fieldset-checkbox";
+@use "@minvws/manon/components/form-fieldset";
+@use "@minvws/manon/components/form-horizontal-fieldset";
+@use "@minvws/manon/components/form-fieldset-radio";
+@use "@minvws/manon/components/form-fieldset-visually-hidden-horizontal";
+@use "@minvws/manon/components/form-grouped-choice-list";
+@use "@minvws/manon/components/form-textarea";
+@use "@minvws/manon/components/form-help";
+@use "@minvws/manon/components/form-horizontal";
+@use "@minvws/manon/components/form-input";
+@use "@minvws/manon/components/form-inline";
+@use "@minvws/manon/components/form-label";
+@use "@minvws/manon/components/form-required";
+@use "@minvws/manon/components/form-combined-field";
+@use "@minvws/manon/components/header";
+@use "@minvws/manon/components/heading";
+@use "@minvws/manon/components/heading-base-set";
+@use "@minvws/manon/components/hero";
+@use "@minvws/manon/components/icon";
+@use "@minvws/manon/components/image-square";
+@use "@minvws/manon/components/image-round";
+@use "@minvws/manon/components/image-cover";
+@use "@minvws/manon/components/image-background";
+@use "@minvws/manon/components/layout-footer-content-block";
+@use "@minvws/manon/components/layout-footer";
+@use "@minvws/manon/components/link";
+@use "@minvws/manon/components/list";
+@use "@minvws/manon/components/img";
+@use "@minvws/manon/components/introduction";
+@use "@minvws/manon/components/login-meta";
+@use "@minvws/manon/components/logo";
+@use "@minvws/manon/components/navigation";
+@use "@minvws/manon/components/nota-bene";
+@use "@minvws/manon/components/navigation-content-wrapper";
+@use "@minvws/manon/components/main";
+@use "@minvws/manon/components/max-line-length";
+@use "@minvws/manon/components/message-counter";
+@use "@minvws/manon/components/notification-confirmation";
+@use "@minvws/manon/components/notification-error";
+@use "@minvws/manon/components/notification-explanation";
+@use "@minvws/manon/components/notification-system";
+@use "@minvws/manon/components/notification-table";
+@use "@minvws/manon/components/notification-warning";
+@use "@minvws/manon/components/notification-paragraph";
+@use "@minvws/manon/components/notification-block-element";
+@use "@minvws/manon/components/p";
+@use "@minvws/manon/components/pagination";
+@use "@minvws/manon/components/page-title";
+@use "@minvws/manon/components/section";
+@use "@minvws/manon/components/sidemenu";
+@use "@minvws/manon/components/slogan";
+@use "@minvws/manon/components/tabs";
+@use "@minvws/manon/components/table";
+@use "@minvws/manon/components/table-action-buttons";
+@use "@minvws/manon/components/table-caption";
+@use "@minvws/manon/components/table-condensed";
+@use "@minvws/manon/components/table-expando-rows";
+@use "@minvws/manon/components/table-number";
+@use "@minvws/manon/components/table-rowspan";
+@use "@minvws/manon/components/table-sticky-header";
+@use "@minvws/manon/components/table-summary";
+@use "@minvws/manon/components/tag";
+@use "@minvws/manon/components/tags";
+@use "@minvws/manon/colors/tags-colors";
+@use "@minvws/manon/components/tile";
+@use "@minvws/manon/components/tile-groups";
+@use "@minvws/manon/components/tile-image-cover";
+@use "@minvws/manon/components/skip-to-content";
+@use "@minvws/manon/components/radio";
 
-/* Colors */
-@use "@minvws/manon/grey-15";
-
-/* Layout */
-@use "@minvws/manon/layout-set";
-
-/* Headings */
-@use "@minvws/manon/headings";
-
-/* Functions */
-
-/* States */
-@use "@minvws/manon/disabled";
-
-/* File import, general */
-@use "@minvws/manon/application-base";
-
-/* Icon base and icon-sets */
-@use "@minvws/manon/icon";
-
-/* Text */
-@use "@minvws/manon/p";
-@use "@minvws/manon/emphasized";
-@use "@minvws/manon/de-emphasized";
-@use "@minvws/manon/link";
-@use "@minvws/manon/link-external";
-@use "@minvws/manon/link-visited";
-@use "@minvws/manon/link-hover";
-@use "@minvws/manon/link-active";
-@use "@minvws/manon/link-focus";
-@use "@minvws/manon/nota-bene";
-@use "@minvws/manon/max-line-length";
-
-/* Helpers */
-@use "@minvws/manon/horizontal-view";
-@use "@minvws/manon/horizontal-scroll";
-@use "@minvws/manon/horizontal-center";
-@use "@minvws/manon/centered-view";
-@use "@minvws/manon/focus-only";
-@use "@minvws/manon/nowrap";
-@use "@minvws/manon/hidden";
-@use "@minvws/manon/visually-hidden";
-@use "@minvws/manon/collapsible";
-
-/* Fundamentals */
-@use "@minvws/manon/checkbox";
-@use "@minvws/manon/radio";
-
-/* Layout */
-@use "@minvws/manon/layout-authentication";
-@use "@minvws/manon/layout-one-third-two-thirds";
-@use "@minvws/manon/layout-two-thirds-one-third";
-@use "@minvws/manon/layout-fifty-fifty";
-@use "@minvws/manon/layout-column-2";
-@use "@minvws/manon/layout-column-3";
-@use "@minvws/manon/layout-column-4";
-@use "@minvws/manon/layout-centered";
-@use "@minvws/manon/layout-form";
-
-/* Button */
-@use "@minvws/manon/button-base";
-@use "@minvws/manon/button-container";
-@use "@minvws/manon/button-ghost";
-@use "@minvws/manon/button-destructive";
-@use "@minvws/manon/button-cta";
-@use "@minvws/manon/button-icon";
-@use "@minvws/manon/button-icon-only";
-
-/* Navigation */
-@use "@minvws/manon/navigation";
-@use "@minvws/manon/navigation-link";
-@use "@minvws/manon/navigation-link-visited";
-@use "@minvws/manon/navigation-link-hover";
-@use "@minvws/manon/navigation-link-active";
-@use "@minvws/manon/navigation-link-focus";
-@use "@minvws/manon/navigation-content-wrapper";
-
-/* Footer navigation */
-@use "@minvws/manon/footer-navigation-link";
-@use "@minvws/manon/footer-navigation-link-visited";
-@use "@minvws/manon/footer-navigation-link-hover";
-@use "@minvws/manon/footer-navigation-link-active";
-@use "@minvws/manon/footer-navigation-link-focus";
-
-/* Header */
-@use "@minvws/manon/header";
-@use "@minvws/manon/header-link";
-@use "@minvws/manon/header-link-visited";
-@use "@minvws/manon/header-link-hover";
-@use "@minvws/manon/header-link-active";
-@use "@minvws/manon/header-link-focus";
-@use "@minvws/manon/header-content-wrapper";
-
-/* Header navigation */
-@use "@minvws/manon/header-navigation";
-@use "@minvws/manon/header-navigation-content-wrapper";
-@use "@minvws/manon/header-navigation-link";
-@use "@minvws/manon/header-navigation-link-visited";
-@use "@minvws/manon/header-navigation-link-hover";
-@use "@minvws/manon/header-navigation-link-active";
-@use "@minvws/manon/header-navigation-link-focus";
-@use "@minvws/manon/header-navigation-collapsible";
-@use "@minvws/manon/header-navigation-collapsible-collapsing-element-button";
-@use "@minvws/manon/header-navigation-collapsible-collapsing-element-button-states";
-@use "@minvws/manon/header-navigation-button";
-@use "@minvws/manon/header-navigation-button-states";
-
-/* Article */
-@use "@minvws/manon/article";
-@use "@minvws/manon/article-content-wrapper";
-@use "@minvws/manon/article-section";
-
-/* Section */
-@use "@minvws/manon/section";
-@use "@minvws/manon/section-content-wrapper";
-
-/* Breadcrumb bar */
-@use "@minvws/manon/breadcrumb-bar";
-@use "@minvws/manon/breadcrumb-bar-content-wrapper";
-@use "@minvws/manon/breadcrumb-bar-link";
-@use "@minvws/manon/breadcrumb-bar-link-states";
-
-/* Footer */
-@use "@minvws/manon/footer";
-@use "@minvws/manon/footer-link";
-@use "@minvws/manon/footer-link-visited";
-@use "@minvws/manon/footer-link-hover";
-@use "@minvws/manon/footer-link-active";
-@use "@minvws/manon/footer-link-focus";
-@use "@minvws/manon/footer-two-thirds-one-third";
-
-/* Components */
-@use "@minvws/manon/branding";
-@use "@minvws/manon/navigation-documentation-integration";
-@use "@minvws/manon/accordion";
-@use "@minvws/manon/filter";
-@use "@minvws/manon/card";
-@use "@minvws/manon/list-base";
-@use "@minvws/manon/skip-to-content";
-@use "@minvws/manon/background-color-offset";
-@use "@minvws/manon/description-list";
-@use "@minvws/manon/message-counter-base";
-@use "@minvws/manon/tabs";
-@use "@minvws/manon/pagination";
-@use "@minvws/manon/language-selector-list";
-
-/* Images */
-@use "@minvws/manon/logo";
-@use "@minvws/manon/image-cover";
-@use "@minvws/manon/image-round";
-@use "@minvws/manon/image-square";
-
-/* Tiles */
-@use "@minvws/manon/tile";
-@use "@minvws/manon/tile-image-cover";
-@use "@minvws/manon/tile-groups";
-
-/* Side menu */
-@use "@minvws/manon/sidemenu";
-@use "@minvws/manon/sidemenu-documentation";
-
-/* Table */
-@use "@minvws/manon/table";
-
-/* Needs to be first of the set */
-@use "@minvws/manon/table-action-buttons";
-@use "@minvws/manon/table-caption";
-@use "@minvws/manon/table-checkbox";
-@use "@minvws/manon/table-expando-rows";
-@use "@minvws/manon/table-number";
-@use "@minvws/manon/table-sticky-header";
-@use "@minvws/manon/table-form";
-
-/* Form */
-@use "@minvws/manon/form-base";
-@use "@minvws/manon/form-input";
-@use "@minvws/manon/form-textarea";
-@use "@minvws/manon/form-checkbox";
-@use "@minvws/manon/form-select";
-@use "@minvws/manon/form-radio";
-@use "@minvws/manon/form-accent-color";
-@use "@minvws/manon/form-button";
-@use "@minvws/manon/form-button-container";
-@use "@minvws/manon/form-button-grouped-horizontal";
-@use "@minvws/manon/form-inline";
-@use "@minvws/manon/form-grouped-choice-list";
-
-/* Fieldset */
-@use "@minvws/manon/form-fieldset";
-@use "@minvws/manon/form-fieldset-visually-hidden";
-@use "@minvws/manon/form-horizontal-view-fieldset";
-@use "@minvws/manon/form-fieldset-visually-hidden-horizontal-view";
-@use "@minvws/manon/form-fieldset-checkbox";
-@use "@minvws/manon/form-fieldset-radio";
-
-/* Other */
-@use "@minvws/manon/code-base";
-@use "@minvws/manon/code-block";
-@use "@minvws/manon/visual-example";
+// Utility classes
+@use "@minvws/manon/utility/centered";
+@use "@minvws/manon/utility/columns";
+@use "@minvws/manon/utility/container";
+@use "@minvws/manon/utility/focus-only";
+@use "@minvws/manon/utility/visually-hidden";
+@use "@minvws/manon/utility/horizontal";
+@use "@minvws/manon/utility/horizontal-scroll";
+@use "@minvws/manon/utility/hidden";
+@use "@minvws/manon/utility/nowrap";
+@use "@minvws/manon/utility/one-third-two-thirds";
+@use "@minvws/manon/utility/overlay";
+@use "@minvws/manon/utility/two-thirds-one-third";
+@use "@minvws/manon/utility/background-color-offset";

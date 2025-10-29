@@ -8,7 +8,7 @@
     "build:css": "sass static/scss/index.scss --style=compressed --no-source-map src/sphinx_icore_open/theme/sphinx_icore_open/static/css/theme.css --load-path=node_modules/",
     "watch:css": "sass --watch static/scss/index.scss:src/sphinx_icore_open/theme/sphinx_icore_open/static/css/theme.css --style=compressed --no-source-map --load-path=node_modules/",
     "copy:fonts": "cp -r node_modules/@minvws/manon-themes/icore-open/fonts/* src/sphinx_icore_open/theme/sphinx_icore_open/static/fonts/",
-    "copy:js": "cp node_modules/@minvws/manon/*.js src/sphinx_icore_open/theme/sphinx_icore_open/static/js/"
+    "copy:js": "cp node_modules/@minvws/manon/js/*.js src/sphinx_icore_open/theme/sphinx_icore_open/static/js/"
   },
   "dependencies": {
     "@minvws/manon": "^18.0.0-alpha.1",

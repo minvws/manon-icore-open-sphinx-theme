@@ -7,11 +7,11 @@
 {% endblock %}
 
 {%- macro manon_sidebar() %}
-{%- block sidebartoc %}
-<nav aria-label="{{ _('Sidebar') }}">
-  {{ toctree(includehidden=True) }}
-</nav>
-{%- endblock %}
+  {%- block sidebartoc %}
+  <nav aria-label="{{ _('Sidebar') }}">
+    {{ toctree(includehidden=True) }}
+  </nav>
+  {%- endblock %}
 {% endmacro %}
 
 {%- macro rellink_markup() %}
@@ -54,37 +54,41 @@
     {%- set searchformaction = "" %}
   {%- endif %}
   <header class="page-header">
-    <div>
-      <nav
-        aria-label="{{ _('Main Navigation') }}"
-        class="collapsible"
-      >
-        <a href="/" class="logo">
-          <img src="{{ theme_logo|e }}" alt="{{ shorttitle|e }}">
-        </a>
-        <div class="collapsing-element">
-          <ul>
-            <li><a href="/">{{ _('Home') }}</a></li>
-          </ul>
-          <div>
-            <form name="header_search" class="inline" action="{{ searchformaction }}" method="get">
-              <input type="text"
-                     name="q"
-                     placeholder="{{ _('Search') }}"
-                     aria-labelledby="searchlabel"
-                     autocomplete="off"
-                     autocapitalize="off"
-                     spellcheck="false"
-              />
-              <button type="submit">
-                <span class="icon icon-search" aria-hidden="true"></span>
-                <span class="visually-hidden">{{ _('Search') }}</span>
-              </button>
-            </form>
-          </div>
+    <nav
+      aria-label="{{ _('Main Navigation') }}"
+      class="collapsible"
+    >
+      <a href="/" class="logo">
+        <img src="{{ theme_logo|e }}" alt="{{ shorttitle|e }}">
+      </a>
+
+      <div class="collapsing-element">
+        <ul>
+          <li><a href="/">{{ _('Home') }}</a></li>
+        </ul>
+        <div>
+          <form name="header_search" class="inline" action="{{ searchformaction }}" method="get">
+            <div>
+              <div class="combined-field">
+                <input type="text"
+                  name="q"
+                  placeholder="{{ _('Search') }}"
+                  aria-labelledby="searchlabel"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                />
+                <button type="submit">
+                  <span class="icon icon-search" aria-hidden="true"></span>
+                  <span class="visually-hidden">{{ _('Search') }}</span>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-      </nav>
-    </div>
+      </div>
+
+    </nav>
   </header>
 {% endblock %}
 

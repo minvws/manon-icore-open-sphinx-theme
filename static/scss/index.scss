@@ -1,10 +1,9 @@
-@use "manon";
-@use "admonition";
-
 @use "@minvws/manon-themes/icore-open" with (
   $font-path: "/_static/fonts"
 );
 
+@use "manon";
+// @use "admonition";
 @use "header-link";
 @use "pagination";
 @use "pre";
