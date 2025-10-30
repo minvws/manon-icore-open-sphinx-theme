@@ -9,7 +9,9 @@
 {%- macro manon_sidebar() %}
   {%- block sidebartoc %}
   <nav aria-label="{{ _('Sidebar') }}">
-    {{ toctree(includehidden=True) }}
+    <div class="sticky-container">
+      {{ toctree(includehidden=True) }}
+    </div>
   </nav>
   {%- endblock %}
 {% endmacro %}
