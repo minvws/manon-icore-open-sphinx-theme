@@ -11,8 +11,8 @@
     "copy:js": "cp node_modules/@minvws/manon/js/*.js src/sphinx_icore_open/theme/sphinx_icore_open/static/js/"
   },
   "dependencies": {
-    "@minvws/manon": "^18.0.0-alpha.1",
-    "@minvws/manon-themes": "^18.0.0-alpha.1"
+    "@minvws/manon": "^18.0.0-alpha.2",
+    "@minvws/manon-themes": "^18.0.0-alpha.2"
   },
   "devDependencies": {
     "sass": "^1.92.1"

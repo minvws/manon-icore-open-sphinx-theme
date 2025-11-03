@@ -18,7 +18,7 @@ COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /uvx /bin/
 
 # Install Node.js deps
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install
 
 # Install Python deps
 COPY pyproject.toml uv.lock ./
