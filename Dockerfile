@@ -1,20 +1,25 @@
 # --- Python Stage ---
 FROM python:3.14-slim
 
+ENV UV_VERSION=0.8.22
 ENV NODE_VERSION=22.20.0
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Install Node.js
-RUN apt-get update && apt-get install -y curl xz-utils \
-    && curl -fsSL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz \
-       | tar -xJ -C /usr/local --strip-components=1 \
-    && apt-get purge -y curl xz-utils \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y curl xz-utils
+
+RUN curl -fsSL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz \
+       | tar -xJ -C /usr/local --strip-components=1
 
 # Install uv
-COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /uvx /bin/
+ADD https://astral.sh/uv/0.9.6/install.sh /uv-installer.sh
+RUN sh /uv-installer.sh && rm /uv-installer.sh
+ENV PATH="/root/.local/bin/:$PATH"
+
+RUN apt-get purge -y curl xz-utils \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js deps
 COPY package.json package-lock.json ./
