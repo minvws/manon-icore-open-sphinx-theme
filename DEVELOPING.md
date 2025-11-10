@@ -12,7 +12,7 @@ You can use the provided `Dockerfile` to build a Docker image for development.
 docker build -t sphinx-icore-open .
 
 # Run a container with the image, mounting the current directory
-docker run -p 8000:8000 -it --rm -v $(pwd):/app sphinx-icore-open
+docker run -p 8000:8000 -it --rm -v $(pwd):/app -v sphinx_node_modules:/app/node_modules sphinx-icore-open
 ```
 
 ## With uv

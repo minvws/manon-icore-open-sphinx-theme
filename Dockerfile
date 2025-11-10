@@ -1,25 +1,27 @@
-# --- Python Stage ---
 FROM python:3.14-slim
 
-ENV UV_VERSION=0.8.22
+ENV UV_VERSION=0.9.6
 ENV NODE_VERSION=22.20.0
 
-# Set the working directory in the container
 WORKDIR /app
 
 # Install Node.js
-RUN apt-get update && apt-get install -y curl xz-utils
-
-RUN curl -fsSL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz \
-       | tar -xJ -C /usr/local --strip-components=1
+RUN apt-get update && apt-get install -y curl xz-utils \
+    && ARCH=$(dpkg --print-architecture) \
+    && case "$ARCH" in \
+         amd64) NODE_ARCH="x64";; \
+         arm64) NODE_ARCH="arm64";; \
+         armhf) NODE_ARCH="armv7l";; \
+         *) echo "Unsupported architecture: $ARCH" && exit 1;; \
+       esac \
+    && curl -fsSL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$NODE_ARCH.tar.xz" \
+       | tar -xJ -C /usr/local --strip-components=1 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install uv
-ADD https://astral.sh/uv/0.9.6/install.sh /uv-installer.sh
+ADD https://astral.sh/uv/$UV_VERSION/install.sh /uv-installer.sh
 RUN sh /uv-installer.sh && rm /uv-installer.sh
 ENV PATH="/root/.local/bin/:$PATH"
-
-RUN apt-get purge -y curl xz-utils \
-    && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js deps
 COPY package.json package-lock.json ./
