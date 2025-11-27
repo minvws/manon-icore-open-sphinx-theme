@@ -2,8 +2,9 @@
   $font-path: "/_static/fonts"
 );
 
-@use "manon";
-// @use "admonition";
+@use "@minvws/manon/components/bundles/all";
+
+@use "admonition";
 @use "header-link";
 @use "pagination";
 @use "pre";
