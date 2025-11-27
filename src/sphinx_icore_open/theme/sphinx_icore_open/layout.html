@@ -1,9 +1,11 @@
 {# Sphinx layout template for the manon theme. #}
 {%- extends "basic/layout.html" %}
-
 {%- block extrahead %}
 {{ super() }}
-<link rel="stylesheet" href="{{ pathto('_static/custom.css', resource=True) }}" type="text/css" />
+<link
+  rel="stylesheet" href="{{ pathto('_static/custom.css', resource=True) }}"
+  type="text/css"
+/>
 {% endblock %}
 
 {%- macro manon_sidebar() %}
@@ -24,6 +26,7 @@
   {%- else %}
     {%- set divlayout = "" %}
   {%- endif %}
+
   <section id="relbar" class="related {{ divlayout }}">
     <nav id="rellinks" class="pagination" aria-label="{{ _('Pagination') }}">
       {%- if prev %}
@@ -35,7 +38,6 @@
           </a>
         </div>
       {%- endif %}
-
       {%- if next %}
         <div class="next">
           <a href="{{ next.link|e }}">
@@ -89,7 +91,6 @@
           </form>
         </div>
       </div>
-
     </nav>
   </header>
 {% endblock %}
@@ -98,14 +99,12 @@
 <main class="sidemenu">
   {{ manon_sidebar() }}
   <div class="visually-grouped">
-
-      {% block body %} {% endblock %}
-
-      {%- block relbar_bottom %}
-        {%- if theme_show_relbar_bottom|tobool %}
-            {{- rellink_markup () }}
-        {%- endif %}
-      {% endblock %}
+    {% block body %} {% endblock %}
+    {%- block relbar_bottom %}
+      {%- if theme_show_relbar_bottom|tobool %}
+        {{- rellink_markup () }}
+      {%- endif %}
+    {% endblock %}
   </div>
 </main>
 {% endblock %}
@@ -113,13 +112,9 @@
 {% block footer %}
 <footer>
   <div>
-    <div class="two-thirds-one-third">
-      {% if show_copyright %}
-      <span>
-          {{ copyright }}
-        </span>
-      {% endif %}
-    </div>
+  {% if show_copyright %}
+  <span class="slogan"> {{ copyright }} </span>
+  {% endif %}
   </div>
 </footer>
 {% endblock %}
