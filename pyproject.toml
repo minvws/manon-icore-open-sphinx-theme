@@ -8,7 +8,7 @@ dependencies = [
     "Sphinx==8.2.3",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
   "myst-parser==4.0.1",
   "sphinx-autobuild==2025.8.25",

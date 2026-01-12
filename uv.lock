@@ -601,7 +601,7 @@ dependencies = [
     { name = "sphinx" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "autodoc-pydantic" },
     { name = "myst-parser" },
@@ -610,14 +610,15 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "autodoc-pydantic", marker = "extra == 'dev'", specifier = "==2.2.0" },
-    { name = "myst-parser", marker = "extra == 'dev'", specifier = "==4.0.1" },
-    { name = "sphinx", specifier = "==8.2.3" },
-    { name = "sphinx-autobuild", marker = "extra == 'dev'", specifier = "==2025.8.25" },
-    { name = "sphinxcontrib-mermaid", marker = "extra == 'dev'", specifier = "==1.0.0" },
+requires-dist = [{ name = "sphinx", specifier = "==8.2.3" }]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "autodoc-pydantic", specifier = "==2.2.0" },
+    { name = "myst-parser", specifier = "==4.0.1" },
+    { name = "sphinx-autobuild", specifier = "==2025.8.25" },
+    { name = "sphinxcontrib-mermaid", specifier = "==1.0.0" },
 ]
-provides-extras = ["dev"]
 
 [[package]]
 name = "sphinxcontrib-applehelp"

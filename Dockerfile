@@ -25,7 +25,7 @@ ENV PATH="/root/.local/bin/:$PATH"
 
 # Install Node.js deps
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm ci
 
 # Install Python deps
 COPY pyproject.toml uv.lock ./

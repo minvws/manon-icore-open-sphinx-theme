@@ -4,4 +4,4 @@
 npm run watch:css &
 
 # Start sphinx-autobuild in the foreground
-sphinx-autobuild docs/source docs/build/html --host 0.0.0.0 --port 8000 --watch src/
+uv run sphinx-autobuild docs/source docs/build/html --host 0.0.0.0 --port 8000 --watch src/
