@@ -1,5 +1,7 @@
 # Customization
 
+## Customization options
+
 The Manon Sphinx theme behavior & style can be customized in multiple ways:
 
 - Various template-level or nontrivial-style settings can be configured via your

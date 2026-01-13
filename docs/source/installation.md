@@ -1,5 +1,7 @@
 # Installation
 
+## Requirements
+
 manon_theme requires **Sphinx 6.2 or newer**
 
 > **note** You will need to explicitly enable the theme in your Sphinx config by
