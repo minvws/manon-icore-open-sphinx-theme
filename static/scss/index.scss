@@ -1,5 +1,6 @@
 @use "@minvws/manon-themes/icore-open" with (
-  $font-path: "/_static/fonts"
+  $font-path: "/_static/fonts",
+  $icons-path: "/_static/img/icons"
 );
 
 @use "@minvws/manon/components/bundles/all";
