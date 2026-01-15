@@ -1,17 +1,31 @@
-{# Sphinx layout template for the manon theme. #} {%- extends
-"basic/layout.html" %} {%- block extrahead %} {{ super() }}
-<link
-  rel="stylesheet"
-  href="{{ pathto('_static/custom.css', resource=True) }}"
-  type="text/css"
-/>
-{% endblock %} {%- macro manon_sidebar() %} {%- block sidebartoc %}
+{# Sphinx layout template for the manon theme. #}
+{%- extends "basic/layout.html" %}
+
+<!-- extra head -->
+{%- block extrahead %}
+{{ super() }}
+<link rel="stylesheet" href="{{ pathto('_static/custom.css', resource=True) }}" type="text/css" />
+{% endblock %}
+
+<!-- sidebar -->
+{%- macro manon_sidebar() %}
+{%- block sidebartoc %}
 <nav aria-label="{{ _('Sidebar') }}">
   <div class="sticky-container">{{ toctree(includehidden=True) }}</div>
 </nav>
-{%- endblock %} {% endmacro %} {%- macro rellink_markup() %} {%- if prev and
-next %} {%- set divlayout = "column-2" %} {%- elif next %} {%- set divlayout =
-"next" %} {%- else %} {%- set divlayout = "" %} {%- endif %}
+{%- endblock %}
+{% endmacro %}
+
+<!-- relbar -->
+{%- macro rellink_markup() %}
+
+{%- if prev and next %}
+  {%- set divlayout = "column-2" %}
+{%- elif next %}
+  {%- set divlayout = "next" %}
+{%- else %}
+  {%- set divlayout = "" %}
+{%- endif %}
 
 <section id="relbar" class="related {{ divlayout }}">
   <nav id="rellinks" class="pagination" aria-label="{{ _('Pagination') }}">
@@ -34,9 +48,16 @@ next %} {%- set divlayout = "column-2" %} {%- elif next %} {%- set divlayout =
     {%- endif %}
   </nav>
 </section>
-{%- endmacro %} {% block header %} {%- if pagename != "search" and builder !=
-"singlehtml" %} {%- set searchformaction = pathto('search') %} {%- else %} {%-
-set searchformaction = "" %} {%- endif %}
+{%- endmacro %}
+
+<!-- header -->
+{% block header %}
+{%- if pagename != "search" and builder != "singlehtml" %}
+  {%- set searchformaction = pathto('search') %}
+{%- else %}
+  {%- set searchformaction = "" %}
+{%- endif %}
+
 <header class="page-header">
   <nav aria-label="{{ _('Main Navigation') }}" class="collapsible">
     <a href="/" class="logo">
@@ -76,16 +97,27 @@ set searchformaction = "" %} {%- endif %}
     </div>
   </nav>
 </header>
-{% endblock %} {% block content %}
+{% endblock %}
+
+<!-- content -->
+{% block content %}
 <main class="sidemenu">
   {{ manon_sidebar() }}
   <div class="visually-grouped">
-    {% block body %} {% endblock %} {%- block relbar_bottom %} {%- if
-    theme_show_relbar_bottom|tobool %} {{- rellink_markup () }} {%- endif %} {%
-    endblock %}
+    {% block body %}
+    {% endblock %}
+
+    {%- block relbar_bottom %}
+      {%- if theme_show_relbar_bottom|tobool %}
+          {{- rellink_markup () }}
+      {%- endif %}
+    {% endblock %}
   </div>
 </main>
-{% endblock %} {% block footer %}
+{% endblock %}
+
+<!-- footer -->
+{% block footer %}
 <footer>
   <div>
     {% if show_copyright %}
@@ -93,5 +125,8 @@ set searchformaction = "" %} {%- endif %}
     {% endif %}
   </div>
 </footer>
-{% endblock %} {% block relbar1 %}{% endblock %} {% block relbar2 %}{% endblock
-%}
+{% endblock %}
+
+<!-- relbar blocks for extensions -->
+{% block relbar1 %}{% endblock %}
+{% block relbar2 %}{% endblock %}
