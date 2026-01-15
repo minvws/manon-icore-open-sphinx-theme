@@ -104,7 +104,10 @@
 <main class="sidemenu">
   {{ manon_sidebar() }}
   <div class="visually-grouped">
-    {% block body %}
+    {% block document %}
+      <div class="content-wrapper">
+        {{ body }}
+      </div>
     {% endblock %}
 
     {%- block relbar_bottom %}
