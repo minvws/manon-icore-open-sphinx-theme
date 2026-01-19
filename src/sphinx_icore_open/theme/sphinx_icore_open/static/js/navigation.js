@@ -2,13 +2,13 @@
 
 import { ensureElementHasId, onMediaQueryMatch, onDomReady } from "./utils.js";
 
-onDomReady(initNaviation);
+onDomReady(initNavigation);
 
 /**
  * Add responsive behaviour to header navigation. Safe to call again to make a
  * newly added header navigation responsive.
  */
-export function initNaviation() {
+export function initNavigation() {
   var headers = document.querySelectorAll("header:not(.breadcrumbs)");
   for (var i = 0; i < headers.length; i++) {
     var nav = headers[i].querySelector("nav");
@@ -25,7 +25,7 @@ export function initNaviation() {
  * @param {boolean} isCondensed
  */
 function makeResponsive(nav, isCondensed) {
-  var menu = nav.querySelector(".collapsible");
+  const menu = nav.querySelector(".collapsible");
   if (!(menu instanceof HTMLElement)) {
     return;
   }
@@ -37,7 +37,7 @@ function makeResponsive(nav, isCondensed) {
     nav.dataset.closeLabel || "Sluit menu"
   );
 
-  menu.parentNode.insertBefore(button.element, menu);
+  menu.parentNode?.insertBefore(button.element, menu);
 
   if (!isCondensed) {
     onMediaQueryMatch(
@@ -74,6 +74,9 @@ function createMenuButton(ul, openLabel, closeLabel) {
   button.appendChild(label);
   button.setAttribute("aria-labelledby", label.id);
 
+  /**
+   * @param {boolean} expanded
+   */
   function setExpanded(expanded) {
     if (expanded !== (button.getAttribute("aria-expanded") === "true")) {
       button.setAttribute("aria-expanded", String(expanded));
