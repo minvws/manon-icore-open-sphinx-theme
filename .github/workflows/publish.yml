@@ -19,9 +19,12 @@ jobs:
     permissions:
       id-token: write
       contents: read
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Install Node.js
         uses: actions/setup-node@v6
