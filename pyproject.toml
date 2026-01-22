@@ -12,7 +12,7 @@ dependencies = [
 dev = [
   "myst-parser==5.0.0",
   "sphinx-autobuild==2025.8.25",
-  "sphinxcontrib-mermaid==1.0.0",
+  "sphinxcontrib-mermaid==2.0.0",
   "autodoc_pydantic==2.2.0",
 ]
 
