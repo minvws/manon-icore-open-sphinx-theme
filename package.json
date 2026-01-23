@@ -4,18 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run copy:fonts && npm run copy:images && npm run copy:js && npm run build:css",
-    "build:css": "sass static/scss/index.scss --style=compressed --no-source-map src/sphinx_icore_open/theme/sphinx_icore_open/static/css/theme.css --load-path=node_modules/",
-    "watch:css": "sass --watch static/scss/index.scss:src/sphinx_icore_open/theme/sphinx_icore_open/static/css/theme.css --style=compressed --no-source-map --load-path=node_modules/",
-    "copy:fonts": "cp -r node_modules/@minvws/manon-themes/dist/icore-open/fonts/. src/sphinx_icore_open/theme/sphinx_icore_open/static/fonts/",
-    "copy:images": "cp -r node_modules/@minvws/manon-themes/dist/icore-open/img/. src/sphinx_icore_open/theme/sphinx_icore_open/static/img/",
-    "copy:js": "cp node_modules/@minvws/manon/js/*.js src/sphinx_icore_open/theme/sphinx_icore_open/static/js/"
+    "build": "vite build",
+    "watch:css": "sass --watch static/scss/index.scss:src/sphinx_icore_open/theme/sphinx_icore_open/static/css/theme.css --style=compressed --no-source-map --load-path=node_modules/"
   },
   "dependencies": {
     "@minvws/manon": "^18.1.0",
     "@minvws/manon-themes": "^18.1.0"
   },
   "devDependencies": {
-    "sass": "^1.97.3"
+    "rollup-plugin-copy": "^3.5.0",
+    "sass": "^1.97.3",
+    "vite": "^7.3.1"
   }
 }
