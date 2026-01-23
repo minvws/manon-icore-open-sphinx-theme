@@ -1,54 +1,71 @@
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
-import copy from 'rollup-plugin-copy';
+import { defineConfig } from "vite";
+import { resolve } from "path";
+import { viteStaticCopy } from "vite-plugin-static-copy";
+
+const OUT_DIR = resolve(
+  __dirname,
+  "src/sphinx_icore_open/theme/sphinx_icore_open/static",
+);
 
 export default defineConfig({
   build: {
-    outDir: resolve(__dirname, 'src/sphinx_icore_open/theme/sphinx_icore_open/static'),
-    emptyOutDir: true, // Clean the output directory before building
+    outDir: OUT_DIR,
+    emptyOutDir: true,
+    cssCodeSplit: false,
+
     rollupOptions: {
       input: {
-        theme: resolve(__dirname, 'static/scss/index.scss'),
+        theme: resolve(__dirname, "static/js/main.js"),
+        styles: resolve(__dirname, "static/scss/index.scss"),
       },
+
       output: {
+        entryFileNames: "js/[name].js",
+
         assetFileNames: (assetInfo) => {
-          // This allows us to control the output filename for assets like CSS
-          if (assetInfo.name === 'theme.css') { // The input filename for SASS is index.scss, but Vite will output it as [name].css, which will be theme.css because of the input name.
-            return 'css/theme.css'; // Path for compiled CSS
+          const name = assetInfo.name ?? "";
+
+          // Force single known CSS output
+          if (name.endsWith(".css")) {
+            return "css/theme.css";
           }
-          // Default behavior for other assets
-          return 'assets/[name].[hash][extname]';
+
+          // Fonts
+          if (/\.(woff2?|ttf|eot|otf)$/.test(name)) {
+            return "fonts/[name][extname]";
+          }
+
+          // Images
+          if (/\.(png|jpe?g|svg|gif|webp|ico)$/.test(name)) {
+            return "img/[name][extname]";
+          }
+
+          // Everything else (hash-safe)
+          return "assets/[name].[hash][extname]";
         },
-        entryFileNames: 'js/[name].js', // Path for any JS entry points
       },
     },
   },
+
   plugins: [
-    copy({
+    viteStaticCopy({
       targets: [
         {
-          src: 'node_modules/@minvws/manon-themes/dist/icore-open/fonts/*',
-          dest: resolve(__dirname, 'src/sphinx_icore_open/theme/sphinx_icore_open/static/fonts'),
+          src: "node_modules/@minvws/manon-themes/dist/icore-open/fonts/*",
+          dest: "fonts",
         },
         {
-          src: 'node_modules/@minvws/manon-themes/dist/icore-open/img/*',
-          dest: resolve(__dirname, 'src/sphinx_icore_open/theme/sphinx_icore_open/static/img'),
-        },
-        {
-          src: 'node_modules/@minvws/manon/js/*.js',
-          dest: resolve(__dirname, 'src/sphinx_icore_open/theme/sphinx_icore_open/static/js'),
+          src: "node_modules/@minvws/manon-themes/dist/icore-open/img/*",
+          dest: "img",
         },
       ],
-      hook: 'writeBundle', // Execute after the bundle is written
-      verbose: true, // For debugging, shows what files are copied
     }),
   ],
+
   css: {
     preprocessorOptions: {
       scss: {
-        loadPaths: [
-          'node_modules', // Allow SASS to find imports from node_modules
-        ],
+        loadPaths: ["node_modules"],
       },
     },
   },

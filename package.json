@@ -3,17 +3,20 @@
   "license": "UNLICENSED",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "build": "vite build",
-    "watch:css": "sass --watch static/scss/index.scss:src/sphinx_icore_open/theme/sphinx_icore_open/static/css/theme.css --style=compressed --no-source-map --load-path=node_modules/"
+    "dev": "vite build --watch"
   },
   "dependencies": {
     "@minvws/manon": "^18.1.0",
     "@minvws/manon-themes": "^18.1.0"
   },
   "devDependencies": {
-    "rollup-plugin-copy": "^3.5.0",
-    "sass": "^1.97.3",
-    "vite": "^7.3.1"
+    "sass": "~1.97.3",
+    "vite": "~7.3.1",
+    "vite-plugin-static-copy": "~3.1.5"
   }
 }
