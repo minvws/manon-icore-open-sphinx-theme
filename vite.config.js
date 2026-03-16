@@ -49,6 +49,7 @@ export default defineConfig({
 
   plugins: [
     viteStaticCopy({
+      silent: true,
       targets: [
         {
           src: "static/img/**/*.{png,jpg,jpeg,svg,gif,webp,ico}",
