@@ -1,0 +1,1 @@
+# Example privacy policy page
