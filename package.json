@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@minvws/manon": "^18.3.0",
-    "@minvws/manon-themes": "^18.3.0"
+    "@minvws/manon-themes": "^18.4.0"
   },
   "devDependencies": {
     "sass": "~1.98.0",
