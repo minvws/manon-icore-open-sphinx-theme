@@ -17,7 +17,7 @@ export default defineConfig({
     alias: {
       "@manon-themes": resolve(
         __dirname,
-        "node_modules/@minvws/manon-themes/dist/rijkshuisstijl-2008",
+        "node_modules/@minvws/manon-themes/dist/icore-open",
       ),
     },
   },
@@ -30,7 +30,6 @@ export default defineConfig({
     rolldownOptions: {
       input: {
         theme: resolve(__dirname, "static/js/main.js"),
-        styles: resolve(__dirname, "static/scss/index.scss"),
       },
 
       output: {
@@ -42,6 +41,7 @@ export default defineConfig({
   // Copy static assets from both the theme and the Manon themes
   plugins: [
     viteStaticCopy({
+      silent: true,
       targets: [
         {
           src: "static/img/**/*.{png,jpg,jpeg,svg,gif,webp,ico}",
@@ -49,7 +49,7 @@ export default defineConfig({
           rename: { stripBase: 2 },
         },
         {
-          src: "node_modules/@minvws/manon-themes/dist/icore-open/img/*",
+          src: "node_modules/@minvws/manon-themes/dist/icore-open/img/**/*",
           dest: "img",
           rename: { stripBase: 6 },
         },
