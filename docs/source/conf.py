@@ -93,8 +93,7 @@ html_show_sphinx = False
 html_show_sourcelink = False
 
 html_theme_options = {
-    "description": "Manon Sphinx theme",
-    "github_user": "minvws",
-    "github_repo": "manon-icore-open-sphinx-theme",
-    "tidelift_url": "https://github.com/minvws/manon-icore-open-sphinx-theme",
+    "show_copyright_privacy_block_footer": "true",
+    "copyright_url": "/copyright.html",
+    "privacy_url": "/privacy.html",
 }
