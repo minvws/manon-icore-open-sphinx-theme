@@ -1,5 +1,7 @@
 # Customization
 
+## Customization
+
 The Sphinx Rijkshuisstijl 2008 Theme behavior and style can be customized in
 multiple ways:
 

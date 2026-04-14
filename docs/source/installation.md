@@ -1,5 +1,7 @@
 # Installation
 
+## Requirements
+
 The Sphinx Rijkshuisstijl 2008 Theme requires **Sphinx 8.2 or newer**.
 
 > **Note** You will need to explicitly enable the theme in your Sphinx config by
