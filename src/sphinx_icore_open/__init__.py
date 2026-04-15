@@ -1,8 +1,9 @@
 import os
 from importlib.metadata import version
-from sphinx.application import Sphinx
-from sphinx_icore_open.translator import CustomHTMLTranslator
 
+from sphinx.application import Sphinx
+
+from sphinx_icore_open.translator import CustomHTMLTranslator
 
 __version__ = version("sphinx-icore-open-theme")
 
@@ -12,6 +13,7 @@ def setup(app: Sphinx):
     theme_path = os.path.join(root_path, "theme/sphinx_icore_open")
 
     app.add_html_theme("sphinx_icore_open", theme_path)
+    app.add_js_file("js/theme.js", type="module")
     app.set_translator("html", CustomHTMLTranslator)
 
     return {"parallel_read_safe": True, "parallel_write_safe": True}
