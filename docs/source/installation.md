@@ -33,9 +33,9 @@ extensions = [
 
 If you're using any of the image-related options listed on
 [Customization](customization.md) (`logo`) or a
-[custom stylesheet](customization.md#custom-stylesheet), you'll also want to
-tell Sphinx where to get these files from. Add a line like this to your
-`conf.py` (changing the path if necessary):
+[custom stylesheet](customization.md), you'll also want to tell Sphinx where to
+get these files from. Add a line like this to your `conf.py` (changing the path
+if necessary):
 
 ```python
 html_static_path = ["_static"]
