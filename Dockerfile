@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
        esac \
     && curl -fsSL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$NODE_ARCH.tar.xz" \
        | tar -xJ -C /usr/local --strip-components=1 \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install uv
 ADD https://astral.sh/uv/$UV_VERSION/install.sh /uv-installer.sh

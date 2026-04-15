@@ -6,6 +6,7 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Ensure that only one workflow runs at a time for a given branch
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
