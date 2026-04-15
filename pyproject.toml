@@ -38,6 +38,7 @@ sphinx_icore_open = [
   "theme/sphinx_icore_open/theme.conf",
 
   # Static files
+  "theme/sphinx_icore_open/static/assets/**/*",
   "theme/sphinx_icore_open/static/css/*.css",
   "theme/sphinx_icore_open/static/js/*.js",
   "theme/sphinx_icore_open/static/fonts/**/*",
