@@ -22,6 +22,7 @@ export default defineConfig({
     },
   },
 
+  // Build configuration
   build: {
     outDir: OUT_DIR,
     emptyOutDir: true,

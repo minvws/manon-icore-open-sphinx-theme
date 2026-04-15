@@ -63,7 +63,10 @@ extlinks = {
         "https://github.com/minvws/manon-icore-open-sphinx-theme/tree/%s",
         "%s",
     ),
-    "bug": ("https://github.com/minvws/manon-icore-open-sphinx-theme/issues/%s", "#%s"),
+    "bug": (
+        "https://github.com/minvws/manon-icore-open-sphinx-theme/issues/%s",
+        "#%s",
+    ),
     "feature": (
         "https://github.com/minvws/manon-icore-open-sphinx-theme/issues/%s",
         "#%s",

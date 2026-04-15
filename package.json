@@ -11,12 +11,12 @@
     "dev": "vite build --watch"
   },
   "dependencies": {
-    "@minvws/manon": "^18.4.0",
-    "@minvws/manon-themes": "^18.4.0"
+    "@minvws/manon": "^18.5.0",
+    "@minvws/manon-themes": "^18.5.0"
   },
   "devDependencies": {
-    "sass": "~1.98.0",
-    "vite": "~8.0.1",
+    "sass": "~1.99.0",
+    "vite": "~8.0.8",
     "vite-plugin-static-copy": "~4.0.0"
   }
 }

@@ -1,9 +1,8 @@
 # Customization
 
-## Customization
+## Customization options
 
-The Sphinx Rijkshuisstijl 2008 Theme behavior and style can be customized in
-multiple ways:
+The iCore Theme behavior and style can be customized in multiple ways:
 
 - Various template-level settings can be configured via `html_theme_options` in
   your `conf.py`.
