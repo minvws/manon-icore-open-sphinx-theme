@@ -1,63 +1,68 @@
-{# Sphinx layout template for the manon theme. #} {%- extends
-"basic/layout.html" %}
+{# Sphinx layout template for the manon theme. #}
+{%- extends "basic/layout.html" %}
 
 <!-- extra head -->
-{%- block extrahead %} {{ super() }}
-<link
-  rel="stylesheet"
-  href="{{ pathto('_static/custom.css', resource=True) }}"
-  type="text/css"
-/>
+{%- block extrahead %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ pathto('_static/custom.css', resource=True) }}" type="text/css" />
 {% endblock %}
 
 <!-- sidebar -->
-{%- macro manon_sidebar() %} {%- block sidebartoc %}
-<nav
-  aria-label="{{ _('Sidebar') }}"
-  data-open-label="Zijbalknavigatie"
-  data-close-label="Sluit zijbalknavigatie"
->
-  <div class="sticky-container">{{ toc }}</div>
-</nav>
-{%- endblock %} {% endmacro %}
+{%- macro manon_sidebar() %}
+  {%- block sidebartoc %}
+    <nav
+      aria-label="{{ _('Sidebar') }}"
+      data-open-label="Zijbalknavigatie"
+      data-close-label="Sluit zijbalknavigatie"
+    >
+      <div class="sticky-container">{{ toctree(includehidden=True) }}</div>
+    </nav>
+  {%- endblock %}
+{% endmacro %}
 
 <!-- relbar -->
-{%- macro rellink_markup() %} {%- if prev and next %} {%- set divlayout =
-"column-2" %} {%- elif next %} {%- set divlayout = "next" %} {%- else %} {%- set
-divlayout = "" %} {%- endif %}
+{%- macro rellink_markup() %}
+  {%- if prev and next %}
+    {%- set divlayout = "column-2" %}
+  {%- elif next %}
+    {%- set divlayout = "next" %}
+  {%- else %}
+    {%- set divlayout = "" %}
+  {%- endif %}
 
-<section id="relbar" class="related {{ divlayout }}">
-  <nav id="rellinks" class="pagination" aria-label="{{ _('Pagination') }}">
-    {%- if prev %}
-    <div class="previous">
-      <a href="{{ prev.link|e }}">
-        <span class="visually-hidden">{{ _('Previous') }}</span>
-        <span class="icon icon-chevron-left" aria-hidden="true"></span>
-        {{ prev.title }}
-      </a>
-    </div>
-    {%- endif %} {%- if next %}
-    <div class="next">
-      <a href="{{ next.link|e }}">
-        <span class="visually-hidden">{{ _('Next') }}</span>
-        {{ next.title }}
-        <span class="icon icon-chevron-right" aria-hidden="true"></span>
-      </a>
-    </div>
-    {%- endif %}
-  </nav>
-</section>
+    <section id="relbar" class="related {{ divlayout }}">
+      <nav id="rellinks" class="pagination" aria-label="{{ _('Pagination') }}">
+        {%- if prev %}
+        <div class="previous">
+          <a href="{{ prev.link|e }}">
+            <span class="visually-hidden">{{ _('Previous') }}</span>
+            <span class="icon icon-chevron-left" aria-hidden="true"></span>
+            {{ prev.title }}
+          </a>
+        </div>
+        {%- endif %} {%- if next %}
+        <div class="next">
+          <a href="{{ next.link|e }}">
+            <span class="visually-hidden">{{ _('Next') }}</span>
+            {{ next.title }}
+            <span class="icon icon-chevron-right" aria-hidden="true"></span>
+          </a>
+        </div>
+        {%- endif %}
+      </nav>
+    </section>
 {%- endmacro %}
 
 <!-- header -->
-{% block header %} {%- if pagename != "search" and builder != "singlehtml" %}
-{%- set searchformaction = pathto('search') %} {%- else %} {%- set
-searchformaction = "" %} {%- endif %}
+{% block header %}
+{%- if pagename != "search" and builder != "singlehtml" %}
+  {%- set searchformaction = pathto('search') %}
+{%- else %}
+  {%- set searchformaction = "" %}
+{%- endif %}
 
 <header class="page-header">
-  <a href="#main-content" class="button focus-only skip-to-content"
-    >Ga direct naar inhoud</a
-  >
+  <a href="#main-content" class="button focus-only skip-to-content" >Ga direct naar inhoud</a>
   <nav
     aria-label="{{ _('Main Navigation') }}"
     class="collapsible"
@@ -71,9 +76,7 @@ searchformaction = "" %} {%- endif %}
 
     <div class="collapsing-element">
       <ul>
-        <li><a href="/">{{ _('Home') }}</a></li>
-        {{ toctree( maxdepth=1, collapse=False, titles_only=True,
-        includehidden=True) }}
+        <li><a href="{{ theme_home_url }}">{{ _('Home') }}</a></li>
       </ul>
       <div>
         <form
@@ -108,16 +111,21 @@ searchformaction = "" %} {%- endif %}
 
 <!-- content -->
 {% block content %}
-<main class="sidemenu" id="main-content">
-  {{ manon_sidebar() }} {% block document %}
-  <article class="page-content">
-    <div class="visually-grouped content-wrapper">{{ body }}</div>
-
-    {%- block relbar_bottom %} {%- if theme_show_relbar_bottom|tobool %} {{-
-    rellink_markup () }} {%- endif %} {% endblock %}
-  </article>
-  {% endblock %}
-</main>
+  {% include "breadcrumbs.html" %}
+  <main class="sidemenu" id="main-content">
+    {{ manon_sidebar() }}
+    {% block document %}
+      <article class="page-content">
+        <div class="visually-grouped content-wrapper">{{ body }}</div>
+    
+        {%- block relbar_bottom %}
+          {%- if theme_show_relbar_bottom|tobool %}
+            {{- rellink_markup () }}
+          {%- endif %}
+        {% endblock %}
+      </article>
+      {% endblock %}
+  </main>
 {% endblock %}
 
 <!-- footer -->
@@ -125,7 +133,9 @@ searchformaction = "" %} {%- endif %}
 <footer>
   <div class="content-wrapper">
     <span class="slogan">
-      {% if theme_slogan %} {{ theme_slogan }} {% endif %}
+      {% if theme_slogan %}
+        {{ theme_slogan }}
+      {% endif %}
     </span>
 
     {%- if theme_show_copyright_privacy_block_footer|tobool %}
@@ -133,14 +143,7 @@ searchformaction = "" %} {%- endif %}
       <h2 id="footer-nav-1-heading">{{ _('About this website') }}</h2>
       <ul>
         <li><a href="{{ theme_copyright_url }}">{{ _('Copyright') }}</a></li>
-        <li>
-          <a
-            href="{{ theme_privacy_url }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            >{{ _('Privacy') }}</a
-          >
-        </li>
+        <li> <a href="{{ theme_privacy_url }}" target="_blank" rel="noopener noreferrer" >{{ _('Privacy') }}</a></li>
       </ul>
     </nav>
     {%- endif %}
@@ -155,4 +158,5 @@ searchformaction = "" %} {%- endif %}
 {% endblock %}
 
 <!-- relbar blocks for extensions -->
-{% block relbar1 %}{% endblock %} {% block relbar2 %}{% endblock %}
+{% block relbar1 %}{% endblock %}
+{% block relbar2 %}{% endblock %}
