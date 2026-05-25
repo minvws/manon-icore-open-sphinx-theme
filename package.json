@@ -15,7 +15,7 @@
     "@minvws/manon-themes": "^18.5.0"
   },
   "devDependencies": {
-    "sass": "~1.99.0",
+    "sass": "~1.100.0",
     "vite": "~8.0.10",
     "vite-plugin-static-copy": "~4.1.0"
   }
