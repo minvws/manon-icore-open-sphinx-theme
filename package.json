@@ -11,7 +11,7 @@
     "dev": "vite build --watch"
   },
   "dependencies": {
-    "@minvws/manon": "^18.5.0",
+    "@minvws/manon": "^18.6.2",
     "@minvws/manon-themes": "^18.5.0"
   },
   "devDependencies": {
