@@ -10,7 +10,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-  "myst-parser==5.0.0",
+  "myst-parser==5.1.0",
   "sphinx-autobuild==2025.8.25",
   "sphinxcontrib-mermaid==2.0.2",
   "autodoc_pydantic==2.2.0",
