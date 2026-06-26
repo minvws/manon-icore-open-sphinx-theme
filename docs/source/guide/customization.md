@@ -38,7 +38,7 @@ html_theme_options = {
 
 Settings related to text display and logo.
 
-- `logo`: Relative path to a logo image. Defaults to `/_static/img/ro-logo.svg`.
+- `logo`: Relative path to a logo image. Defaults to `/_static/img/logo.svg`.
 - `logo_text`: Text to appear next to or under the logo.
 - `slogan`: A project slogan to appear in the footer.
 - `home_url`: URL for the home link in the header. Defaults to `/`.
