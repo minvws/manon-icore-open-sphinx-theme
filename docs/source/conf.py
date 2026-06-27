@@ -97,6 +97,6 @@ html_show_sourcelink = False
 
 html_theme_options = {
     "show_copyright_privacy_block_footer": "true",
-    "copyright_url": "/copyright.html",
-    "privacy_url": "/privacy.html",
+    "copyright_url": "/legal/copyright.html",
+    "privacy_url": "/legal/privacy.html",
 }

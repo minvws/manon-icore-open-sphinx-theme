@@ -27,9 +27,7 @@
 
 ```{toctree}
 :hidden:
-:maxdepth: 1
+:glob:
 
-installation.md
-customization.md
-manon.md
+guide/*
 ```
