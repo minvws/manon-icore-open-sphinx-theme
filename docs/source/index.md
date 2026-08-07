@@ -1,5 +1,9 @@
 # Manon: a Sphinx theme
 
+A visually clean, responsive, and configurable theme for
+[Sphinx](https://www.sphinx-doc.org), built with the
+[Manon](https://github.com/minvws/nl-rdo-manon) design framework.
+
 ## Features
 
 - **Accessibility Focused**: High emphasis on accessibility, including semantic

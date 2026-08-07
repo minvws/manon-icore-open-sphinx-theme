@@ -30,7 +30,7 @@ html_theme_options = {
     "show_copyright_privacy_block_footer": True,
     "copyright_url": "/copyright.html",
     "privacy_url": "/privacy.html",
-    "home_url": "/",
+    "home_url": "https://example.org",
 }
 ```
 
@@ -38,10 +38,12 @@ html_theme_options = {
 
 Settings related to text display and logo.
 
-- `logo`: Relative path to a logo image. Defaults to `/_static/img/logo.svg`.
+- `logo`: Path to a logo image, relative to the root of the built documentation.
+  Defaults to `_static/img/logo.svg`.
 - `logo_text`: Text to appear next to or under the logo.
 - `slogan`: A project slogan to appear in the footer.
-- `home_url`: URL for the home link in the header. Defaults to `/`.
+- `home_url`: URL for the logo and home links in the header, and for the first
+  breadcrumb. Defaults to the documentation root.
 
 ### Footer
 
