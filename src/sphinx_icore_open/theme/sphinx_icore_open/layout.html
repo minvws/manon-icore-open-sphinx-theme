@@ -112,11 +112,16 @@
 <!-- content -->
 {% block content %}
   {% include "breadcrumbs.html" %}
-  <main class="sidemenu" id="main-content">
+
+  <main class="sidemenu" id="main-content" role="main">
     {{ manon_sidebar() }}
     {% block document %}
       <article class="page-content">
-        <div class="visually-grouped content-wrapper">{{ body }}</div>
+        <div class="visually-grouped content-wrapper">
+          {% block body %}
+            {{ body }}
+          {% endblock %}
+        </div>
     
         {%- block relbar_bottom %}
           {%- if theme_show_relbar_bottom|tobool %}
