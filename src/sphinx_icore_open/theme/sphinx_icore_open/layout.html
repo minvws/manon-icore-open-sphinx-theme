@@ -70,13 +70,13 @@
     data-close-label="Sluit menu"
     data-media="(min-width: 48rem)"
   >
-    <a href="/" class="logo">
-      <img src="{{ theme_logo|e }}" alt="{{ shorttitle|e }}" />
+    <a href="{{ theme_home_url or pathto(master_doc) }}" class="logo">
+      <img src="{{ pathto(theme_logo, 1)|e }}" alt="{{ shorttitle|e }}" />
     </a>
 
     <div class="collapsing-element">
       <ul>
-        <li><a href="{{ theme_home_url }}">{{ _('Home') }}</a></li>
+        <li><a href="{{ theme_home_url or pathto(master_doc) }}">{{ _('Home') }}</a></li>
       </ul>
       <div>
         <form
@@ -112,11 +112,16 @@
 <!-- content -->
 {% block content %}
   {% include "breadcrumbs.html" %}
-  <main class="sidemenu" id="main-content">
+
+  <main class="sidemenu" id="main-content" role="main">
     {{ manon_sidebar() }}
     {% block document %}
       <article class="page-content">
-        <div class="visually-grouped content-wrapper">{{ body }}</div>
+        <div class="visually-grouped content-wrapper">
+          {% block body %}
+            {{ body }}
+          {% endblock %}
+        </div>
     
         {%- block relbar_bottom %}
           {%- if theme_show_relbar_bottom|tobool %}

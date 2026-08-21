@@ -3,7 +3,7 @@
     <ul>
       {%- block breadcrumbs %}
       <li>
-        <a href="{{ theme_home_url }}"><i class="icon icon-home"></i></a>
+        <a href="{{ theme_home_url or pathto(master_doc) }}"><i class="icon icon-home"></i></a>
       </li>
       {%- for doc in parents %}
       <li><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
