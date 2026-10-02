@@ -1,0 +1,22 @@
+/* Spacing for the sections Sphinx generates around each heading level in the page content. */
+article .content-wrapper section {
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6,
+  > ul,
+  > ol {
+    margin: 0;
+  }
+
+  section {
+    gap: 1rem;
+  }
+
+  section section {
+    margin-top: 1rem;
+    padding: 0;
+  }
+}
