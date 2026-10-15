@@ -9,6 +9,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      manon:
+        patterns:
+          - "@minvws/manon"
+          - "@minvws/manon-themes"
 
   - package-ecosystem: "uv"
     directory: "/"

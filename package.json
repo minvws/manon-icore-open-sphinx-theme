@@ -11,12 +11,17 @@
     "dev": "vite build --watch"
   },
   "dependencies": {
-    "@minvws/manon": "^18.6.2",
-    "@minvws/manon-themes": "^18.6.2"
+    "@minvws/manon": "^19.0.1",
+    "@minvws/manon-themes": "^19.0.1"
   },
   "devDependencies": {
-    "sass": "~1.104.0",
-    "vite": "~8.3.0",
+    "sass": "~1.105.0",
+    "vite": "~8.3.2",
     "vite-plugin-static-copy": "~4.1.1"
+  },
+  "overrides": {
+    "vite-plugin-static-copy": {
+      "chokidar": "^5.0.0"
+    }
   }
 }
